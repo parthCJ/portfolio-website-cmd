@@ -84,22 +84,17 @@ Technologies     ████████████████████ 10
 └─ Achievement: LangChain applications`,
 
   contact: `
-📡 ESTABLISHING CONNECTION...
-
-
-                      CONTACT PROTOCOLS AVAILABLE:                  
-
-                                                                    
-  📧  Email    : parthsharmacj@gmail.com                            
-  📱  Phone    : +91 9468999789                                     
-  🐙  GitHub   : https://github.com/parthCJ                         
-  💼  LinkedIn : https://www.linkedin.com/in/parthsharmacj/         
-  📍  Location : Rajasthan, India                                   
-                                                                  
-
-
-
-Ready to collaborate on exciting projects!`,
+╔══════════════════════════════════════════════════════════════╗
+║                    CONTACT PROTOCOLS AVAILABLE               ║
+╠══════════════════════════════════════════════════════════════╣
+║ Email     : parthsharmacj@gmail.com                          ║
+║ Phone     : +91 9468999789                                   ║
+║ GitHub    : https://github.com/parthCJ                       ║
+║ LinkedIn  : https://www.linkedin.com/in/parthsharmacj/       ║
+║ Location  : Rajasthan, India                                 ║
+║                                                              ║
+║ Ready to collaborate on exciting projects!                   ║
+╚══════════════════════════════════════════════════════════════╝`,
 
   matrix: "Entering Matrix mode... Reality is just code.",
   clear: "CLEAR_SCREEN",
