@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to terminal/gaming theme with green colors */
+  --background: #ffffff; /* Main background color */
+  --foreground: #374151; /* Default text color */
+  --card: #f0fdf4; /* Card background */
+  --card-foreground: #374151; /* Card text color */
+  --popover: rgba(255, 255, 255, 0.9); /* Popover background */
+  --popover-foreground: #374151; /* Popover text color */
+  --primary: #15803d; /* Primary color for buttons and highlights */
+  --primary-foreground: #ffffff; /* Text color on primary buttons */
+  --secondary: #84cc16; /* Accent color for highlights */
+  --secondary-foreground: #374151; /* Text color on secondary elements */
+  --muted: #f0fdf4; /* Muted background for less important sections */
+  --muted-foreground: #374151; /* Text color for muted sections */
+  --accent: #84cc16; /* Bright accent color for interactive elements */
+  --accent-foreground: #ffffff; /* Text on accent elements */
+  --destructive: #ea580c; /* Color for destructive actions */
+  --destructive-foreground: #ffffff; /* Text on destructive elements */
+  --border: #d1d5db; /* Default border color */
+  --input: #ffffff; /* Input background color */
+  --ring: rgba(20, 184, 166, 0.5); /* Focus ring color */
+  --chart-1: #15803d; /* Chart color 1 */
+  --chart-2: #84cc16; /* Chart color 2 */
+  --chart-3: #ea580c; /* Chart color 3 */
+  --chart-4: #f97316; /* Chart color 4 */
+  --chart-5: #a16207; /* Chart color 5 */
+  --radius: 0.5rem; /* Corner rounding */
+  --sidebar: #f0fdf4; /* Sidebar background */
+  --sidebar-foreground: #374151; /* Sidebar text color */
+  --sidebar-primary: #15803d; /* Primary sidebar color */
+  --sidebar-primary-foreground: #ffffff; /* Text on primary sidebar */
+  --sidebar-accent: #84cc16; /* Accent color for sidebar */
+  --sidebar-accent-foreground: #374151; /* Text on sidebar accent */
+  --sidebar-border: #d1d5db; /* Sidebar border color */
+  --sidebar-ring: rgba(20, 184, 166, 0.5); /* Sidebar focus ring color */
+  --font-jetbrains-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+.dark {
+  /* Dark mode with terminal green theme */
+  --background: #0a0a0a; /* Dark terminal background */
+  --foreground: #00ff00; /* Bright green terminal text */
+  --card: #1a1a1a; /* Dark card backgrounds */
+  --card-foreground: #00ff00; /* Green text on cards */
+  --popover: #0a0a0a; /* Dark popover */
+  --popover-foreground: #00ff00; /* Green popover text */
+  --primary: #00ff00; /* Bright green for dark mode */
+  --primary-foreground: #0a0a0a; /* Dark text on primary */
+  --secondary: #333333; /* Dark secondary */
+  --secondary-foreground: #00ff00; /* Green text on secondary */
+  --muted: #1a1a1a; /* Dark muted */
+  --muted-foreground: #888888; /* Muted green text */
+  --accent: #00ff00; /* Bright green accent */
+  --accent-foreground: #0a0a0a; /* Dark text on accent */
+  --destructive: #ff0000; /* Red for errors */
+  --destructive-foreground: #ffffff; /* White text on red */
+  --border: #333333; /* Dark border */
+  --input: #1a1a1a; /* Dark input */
+  --ring: rgba(0, 255, 0, 0.5); /* Green ring */
+  --font-jetbrains-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+@theme inline {
+  --font-sans: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+
+  /* Force monospace font on all elements for consistent CLI appearance */
+  * {
+    font-family: var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace !important;
+  }
+
+  /* Ensure proper table alignment with fixed character width */
+  pre,
+  code,
+  .font-mono {
+    font-family: var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace !important;
+    font-variant-ligatures: none;
+    letter-spacing: 0;
+    word-spacing: 0;
+  }
+}
+
+/* Added terminal-style animations and effects */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typewriter 3s steps(40, end);
+}
+
+.glitch-effect:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.matrix-bg {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 0, 0.1) 50%, transparent 100%);
+  background-size: 20px 20px;
+  animation: matrix-scroll 20s linear infinite;
+}
+
+@keyframes matrix-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
