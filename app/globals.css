@@ -128,6 +128,44 @@
     letter-spacing: 0;
     word-spacing: 0;
   }
+
+  /* Added mobile-specific responsive styles */
+  @media (max-width: 640px) {
+    .whitespace-pre {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Ensure ASCII tables scale properly on mobile */
+    pre,
+    code {
+      font-size: clamp(8px, 2.5vw, 12px) !important;
+      line-height: 1.2;
+    }
+
+    /* Mobile scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 2px;
+    }
+  }
+
+  /* Tablet and larger screens */
+  @media (min-width: 641px) {
+    pre,
+    code {
+      font-size: 14px !important;
+    }
+  }
 }
 
 /* Added terminal-style animations and effects */

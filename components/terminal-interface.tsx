@@ -200,27 +200,30 @@ Achievement Unlocked: 🏆 Backend Security Master`)
 
   return (
     <div
-      className={`min-h-screen p-4 font-mono ${isMatrixMode ? "dark" : ""}`}
+      className={`min-h-screen p-2 sm:p-4 font-mono ${isMatrixMode ? "dark" : ""}`}
       style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
     >
-      <Card className="max-w-4xl mx-auto h-[80vh] bg-card/95 backdrop-blur border-2 border-primary/20">
-        <div className="p-6 h-full flex flex-col">
+      {/* Terminal Header */}
+      <Card className="w-full max-w-4xl mx-auto h-[85vh] sm:h-[80vh] bg-card/95 backdrop-blur border-2 border-primary/20">
+        <div className="p-3 sm:p-6 h-full flex flex-col">
           {/* Terminal Header */}
-          <div className="flex items-center gap-2 mb-4 pb-2 border-b border-primary/20">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <div className="flex items-center gap-2 mb-2 sm:mb-4 pb-2 border-b border-primary/20">
+            <div className="flex gap-1 sm:gap-2">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
             </div>
             <span
-              className="text-sm text-muted-foreground ml-4 font-mono"
+              className="text-xs sm:text-sm text-muted-foreground ml-2 sm:ml-4 font-mono truncate"
               style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
             >
-              parth@portfolio-terminal: {currentPath}
+              <span className="hidden sm:inline">parth@portfolio-terminal: </span>
+              {currentPath}
             </span>
             {isMatrixMode && (
-              <Badge variant="outline" className="ml-auto text-primary border-primary font-mono">
-                MATRIX MODE
+              <Badge variant="outline" className="ml-auto text-xs sm:text-sm text-primary border-primary font-mono">
+                <span className="hidden sm:inline">MATRIX MODE</span>
+                <span className="sm:hidden">MATRIX</span>
               </Badge>
             )}
           </div>
@@ -228,14 +231,17 @@ Achievement Unlocked: 🏆 Backend Security Master`)
           {/* Terminal Output */}
           <div
             ref={terminalRef}
-            className="flex-1 overflow-y-auto space-y-1 text-sm leading-relaxed font-mono"
+            className="flex-1 overflow-y-auto overflow-x-auto space-y-1 text-xs sm:text-sm leading-relaxed font-mono"
             style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
           >
             {history.map((line, index) => (
               <div
                 key={index}
-                className="whitespace-pre-wrap font-mono"
-                style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
+                className="whitespace-pre font-mono break-words sm:break-normal"
+                style={{
+                  fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace',
+                  fontSize: "clamp(10px, 2.5vw, 14px)",
+                }}
               >
                 {line}
               </div>
@@ -243,23 +249,27 @@ Achievement Unlocked: 🏆 Backend Security Master`)
           </div>
 
           {/* Terminal Input */}
-          <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-4 pt-2 border-t border-primary/20">
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-center gap-1 sm:gap-2 mt-2 sm:mt-4 pt-2 border-t border-primary/20"
+          >
             <span
-              className="text-primary font-bold font-mono"
+              className="text-primary font-bold font-mono text-xs sm:text-sm flex-shrink-0"
               style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
             >
-              {currentPath}$
+              <span className="hidden sm:inline">{currentPath}$</span>
+              <span className="sm:hidden">$</span>
             </span>
             <Input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="flex-1 bg-transparent border-none focus:ring-0 focus:ring-offset-0 font-mono"
+              className="flex-1 bg-transparent border-none focus:ring-0 focus:ring-offset-0 font-mono text-xs sm:text-sm"
               style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
-              placeholder="Type a command..."
+              placeholder="Type command..."
               autoFocus
             />
             <span
-              className="terminal-cursor text-primary font-mono"
+              className="terminal-cursor text-primary font-mono text-xs sm:text-sm"
               style={{ fontFamily: 'var(--font-jetbrains-mono), "JetBrains Mono", "Courier New", monospace' }}
             >
               |
@@ -267,7 +277,7 @@ Achievement Unlocked: 🏆 Backend Security Master`)
           </form>
 
           {/* Quick Commands */}
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-4 max-h-16 sm:max-h-none overflow-y-auto">
             {Object.keys(commands)
               .filter((cmd) => cmd !== "clear")
               .map((cmd) => (
@@ -280,7 +290,7 @@ Achievement Unlocked: 🏆 Backend Security Master`)
                     handleCommand(cmd)
                     setInput("")
                   }}
-                  className="text-xs glitch-effect hover:border-primary hover:text-primary font-mono"
+                  className="text-xs px-2 py-1 sm:px-3 sm:py-2 glitch-effect hover:border-primary hover:text-primary font-mono flex-shrink-0"
                 >
                   {cmd}
                 </Button>
