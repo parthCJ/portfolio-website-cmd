@@ -28,24 +28,36 @@ const commands = {
 ╚══════════════════════════════════════════════════════════════╝`,
 
   projects: `
-🚀 ACTIVE PROJECTS:
+ACTIVE PROJECTS:
 
-[1] AI Fitness Tracker
+[1] Tixly - AI Customer Support Agent
+    ├─ LLaMA 3.1 70B ticket classification
+    ├─ ChromaDB RAG pipeline (60% faster)
+    ├─ LSTM demand prediction
+    └─ Tech: LLaMA 3.1, Groq API, ChromaDB, AWS EC2
+
+[2] FitDetect - Full Stack Fitness App
+    ├─ Real-time pose estimation (30 FPS)
+    ├─ Google OAuth 2.0 (500+ users)
+    ├─ MongoDB workout tracking
+    └─ Tech: Next.js, MediaPipe, MongoDB, NextAuth
+    
+[3] AI Fitness Tracker
     ├─ Computer vision push-up counter
     ├─ 33 body landmarks tracking
     ├─ Real-time angle calculations
     └─ Tech: MediaPipe, OpenCV, NumPy
     
-[2] SecureAuth Backend System  
+[4] SecureAuth Backend System  
     ├─ JWT-based authentication
     ├─ MongoDB integration
     ├─ AWS EC2 deployment
     └─ Tech: Node.js, Express.js, SSL
 
-Type 'project 1' or 'project 2' for details...`,
+Type 'project 1', 'project 2', 'project 3', or 'project 4' for details...`,
 
   skills: `
-💻 SKILL TREE:
+SKILL TREE:
 
 Languages        ████████████████████ 100%
 ├─ JavaScript    ████████████████████ 95%
@@ -66,7 +78,7 @@ Technologies     ████████████████████ 10
 └─ Git           ████████████████████ 90%`,
 
   experience: `
-📈 EXPERIENCE LOG:
+EXPERIENCE LOG:
 
 [CURRENT] Computer Vision & ML Engineer
 ├─ Duration: June 2025 - Present
@@ -137,10 +149,52 @@ export function TerminalInterface() {
       const projectNum = command.split(" ")[1]
       if (projectNum === "1") {
         newHistory.push(`
-🎯 AI FITNESS TRACKER - DETAILED VIEW
+TIXLY - AI CUSTOMER SUPPORT AGENT - DETAILED VIEW
+
+Repository: github.com/parthCJ/Tixly-Customer_support_agent
+Status: ACTIVE
+
+Core Features:
+├─ LLaMA 3.1 70B via Groq API
+├─ 1000+ tickets classified daily
+├─ ChromaDB vector embeddings
+└─ 7-day demand prediction (LSTM)
+
+Technical Implementation:
+├─ RAG pipeline (60% faster responses)
+├─ ChromaDB for vector storage
+├─ LSTM model for resource allocation
+├─ AWS EC2 with Nginx reverse proxy
+└─ Production-grade deployment
+
+Achievement Unlocked: AI/ML Systems Expert`)
+      } else if (projectNum === "2") {
+        newHistory.push(`
+FITDETECT - FULL STACK FITNESS APP - DETAILED VIEW
+
+Repository: github.com/parthCJ/FitDetect
+Status: DEPLOYED
+
+Core Features:
+├─ Google OAuth 2.0 authentication
+├─ Real-time pose estimation (30 FPS)
+├─ Handles 500+ concurrent users
+└─ Automated workout tracking
+
+Technical Stack:
+├─ Next.js full-stack framework
+├─ NextAuth.js for authentication
+├─ MediaPipe for pose estimation
+├─ MongoDB for data persistence
+└─ Custom CV algorithms
+
+Achievement Unlocked: Full Stack + CV Master`)
+      } else if (projectNum === "3") {
+        newHistory.push(`
+AI FITNESS TRACKER - DETAILED VIEW
 
 Repository: github.com/parthCJ/body-exercise-detection
-Status: ✅ ACTIVE
+Status: ACTIVE
 
 Core Features:
 ├─ Real-time push-up detection
@@ -154,13 +208,13 @@ Technical Implementation:
 ├─ NumPy for mathematical operations
 └─ Real-time frame processing
 
-Achievement Unlocked: 🏆 Computer Vision Expert`)
-      } else if (projectNum === "2") {
+Achievement Unlocked: Computer Vision Expert`)
+      } else if (projectNum === "4") {
         newHistory.push(`
-🔐 SECUREAUTH BACKEND - DETAILED VIEW
+SECUREAUTH BACKEND - DETAILED VIEW
 
 Repository: github.com/parthCJ/SecureAuth-Backend-System
-Status: ✅ DEPLOYED
+Status: DEPLOYED
 
 Core Features:
 ├─ JWT token authentication
@@ -175,9 +229,9 @@ Technical Stack:
 ├─ Nginx reverse proxy
 └─ SSL certificate encryption
 
-Achievement Unlocked: 🏆 Backend Security Master`)
+Achievement Unlocked: Backend Security Master`)
       } else {
-        newHistory.push("Project not found. Available: project 1, project 2")
+        newHistory.push("Project not found. Available: project 1, project 2, project 3, project 4")
       }
     } else if (commands[command as keyof typeof commands]) {
       newHistory.push(commands[command as keyof typeof commands])

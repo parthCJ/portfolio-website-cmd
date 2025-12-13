@@ -30,14 +30,14 @@ export function GameModeToggle() {
       </div>
 
       <Button onClick={handleExplore} size="sm" className="glitch-effect bg-primary hover:bg-primary/80">
-        🎮 Explore +10 XP
+        Explore +10 XP
       </Button>
 
       {achievements.length > 0 && (
         <div className="space-y-1">
           {achievements.slice(-3).map((achievement, index) => (
             <Badge key={index} className="block text-xs bg-accent text-accent-foreground">
-              🏆 {achievement}
+              {achievement}
             </Badge>
           ))}
         </div>

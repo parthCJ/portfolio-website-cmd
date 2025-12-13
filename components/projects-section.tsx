@@ -3,12 +3,38 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink, Eye, Activity } from "lucide-react"
+import { Github, ExternalLink, Eye, Activity, Bot, Dumbbell } from "lucide-react"
 import { useState } from "react"
 
 const projects = [
   {
     id: 1,
+    title: "Tixly - AI Customer Support Agent",
+    description:
+      "An intelligent ticket classification system powered by LLaMA 3.1 70B via Groq API, processing over 1,000 tickets daily with enhanced RAG pipeline and predictive analytics.",
+    longDescription:
+      "Developed a smart ticket system leveraging LLaMA 3.1 70B through Groq API to classify over a thousand tickets per day. Enhanced the RAG pipeline with ChromaDB vector embeddings, reducing response times by 60%. Built an LSTM model to predict 7-day support demand for optimized resource allocation. Deployed on AWS EC2 with Nginx reverse proxy for production-grade performance.",
+    technologies: ["LLaMA 3.1", "Groq API", "ChromaDB", "LSTM", "RAG Pipeline", "AWS EC2", "Nginx", "Python"],
+    github: "https://github.com/parthCJ/Tixly-Customer_support_agent",
+    demo: "#",
+    icon: Bot,
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "FitDetect - Full Stack Fitness App",
+    description:
+      "A comprehensive full-stack fitness application featuring real-time pose estimation, Google OAuth 2.0 authentication, and handling 500+ concurrent users with advanced workout tracking.",
+    longDescription:
+      "Led the design and launch of a full-stack fitness app with Google OAuth 2.0, reliably handling 500+ concurrent users with NextAuth.js. Integrated MediaPipe for real-time pose estimation at 30 FPS and built custom computer vision algorithms for exercise detection. Designed MongoDB schema to track workouts with automated data aggregation and real-time session management.",
+    technologies: ["Next.js", "NextAuth.js", "Google OAuth 2.0", "MediaPipe", "MongoDB", "Computer Vision", "Real-time Processing"],
+    github: "https://github.com/parthCJ/FitDetect",
+    demo: "#",
+    icon: Dumbbell,
+    featured: true,
+  },
+  {
+    id: 3,
     title: "AI Fitness Tracker",
     description:
       "A computer vision application that automatically counts push-ups by tracking 33 key body landmarks and calculating the elbow joint's angle using advanced pose estimation.",
@@ -21,7 +47,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 4,
     title: "SecureAuth Backend System",
     description:
       "A comprehensive backend system built with Node.js and Express.js featuring secure user authentication, session management, and JWT-based security.",
